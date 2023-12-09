@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Creator</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script defer src="./js/app.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Crew Creator</h1>
+    </div>
+    <div id="content">
+        <div id="content-header">
+            <h3>
+                Drop the names you'd like to bunch up!
+            </h3>
+        </div>
+        <div id="name">
+            <label for="name-input">Name</label>
+            <input type="text" id="name-input">
+        </div>
+        <div onclick="addName()" id="add-button">
+            <button class="button" type="submit" id="add">Add</button>
+        </div>
+
+        <div id="names-list"> </div>
+
+    <a href="groups.html"></a>
+    </div>
+    <div id="next">
+        <a href="groups.html">
+            <button id="next-button" class="button" type="button">Next</button>
+        </a>
+    </div>
+</body>
+
+</html>

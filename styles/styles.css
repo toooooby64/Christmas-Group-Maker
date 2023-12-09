@@ -1,0 +1,117 @@
+body{
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    color: white;
+    margin: 0;
+    background-color: #62A8AC;
+}
+
+input{
+    width: 200px;
+    height: 25px;
+    border-radius: 7px;
+}
+
+label{
+    font-size: large;
+}
+#header{
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+#content{
+    padding: 5px;
+    text-align: center;
+}
+
+#next{
+    font-size: large;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+#add-button{
+    padding: 5px;
+}
+
+
+#names-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+}
+
+#names-print{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+}
+
+#group-input{
+    width: 50px;
+    height: 25px;
+}
+.group-card {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Aligns items at the top */
+    width: 100px;
+    min-height: 150px;
+    margin: 3px;
+    border-bottom: 1px solid #FAFAD2;
+}
+
+#groups-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 5px ;
+}
+
+.button{
+    width: 100px;
+    height: 30px;
+    background-color: #FAFAD2;
+    color: 084C61;
+    border-radius: 10px;
+    border: #FAFAD2;
+    border-style: solid;
+}
+
+.name-card{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    margin: 3px;
+    border-bottom: 1px solid #FAFAD2;
+    font-size: 20px;
+}
+
+.delete-button {
+    background-color: #62A8AC; /* Same as your delete-button id */
+    color: #FAFAD2; /* Contrast with the background for visibility */
+    border-style: solid;
+    border-color: #FAFAD2; /* Same as your delete-button id */
+    border-width: 1px;
+    border-radius: 5px; /* Same as your delete-button id */
+    padding: 5px; /* Add some padding */
+    font-size: 16px; /* Match the font size with your other elements */
+    cursor: pointer; /* Change cursor to pointer when hovering over the button */
+}
+
+.name{
+    margin: 3px;
+}
