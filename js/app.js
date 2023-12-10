@@ -4,6 +4,10 @@ function addName(){
     event.preventDefault();
     // Grab/Create all HTML needed
     const name = document.getElementById('name-input').value;
+    if (name === ''){
+        alert('Please enter a name')
+        return
+    }
     const container = document.getElementById('names-list');
     const nameCard = document.createElement('div');
     const button = document.createElement('button');
