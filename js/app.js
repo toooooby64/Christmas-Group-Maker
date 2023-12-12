@@ -8,44 +8,18 @@ function addName(){
         alert('Please enter a valid input')
         return
     }
-    const container = document.getElementById('names-list');
-    const nameCard = document.createElement('div');
-    const button = document.createElement('button');
-
-    
     if (name.includes(' ')){
-        console.log("asdfasdf")
-        names = name.split(' ')
-        console.log(names)
+        names.push.apply(names, name.split(' '))
+        allNames = name.split(' ')
+
+        allNames.forEach(name => {
+            createNameCards(name)
+        });
+    }else{
+        names.push(name);
+        createNameCards(name)
     }
-    // Add name to array
-    names.push(name);
-
-    //Add id and text to button
-    button.classList.add('delete-button');
-    button.innerText = 'X';
-
-    // Add name-card class to nameCard
-    nameCard.classList.add('name-card');
-
-    // Add event listener to button to remove name from array and DOM when clicked
-    button.addEventListener('click', function(){
-        const index = names.indexOf(name); // Find index of name
-        if (index > -1) {
-            names.splice(index, 1); // Remove name from array
-        }
-        window.sessionStorage.setItem("names", names)
-        nameCard.remove(); // Remove nameCard from DOM
-    });
-
-    // Add name and button to nameCard
-    nameCard.innerText = name;
-    nameCard.appendChild(button);
-
-    // Add the new nameCard to the names-list container
-    container.appendChild(nameCard); 
-
-    // Clear input field
+    
     const nameInput = document.getElementById('name-input');
     nameInput.value = '';
 
@@ -108,6 +82,36 @@ function validateInput(name){
     return regex.test(name) && !isEmpty;
 }
 
+function createNameCards(name){
+    const container = document.getElementById('names-list');
+    const nameCard = document.createElement('div');
+    const button = document.createElement('button');
+
+    nameCard.innerText = name;
+    //Add id and text to button
+    button.classList.add('delete-button');
+    button.innerText = 'X';
+
+    // Add name-card class to nameCard
+    nameCard.classList.add('name-card');
+
+    // Add event listener to button to remove name from array and DOM when clicked
+    button.addEventListener('click', function(){
+        const index = names.indexOf(name); // Find index of name
+        if (index > -1) {
+            names.splice(index, 1); // Remove name from array
+        }
+        window.sessionStorage.setItem("names", names)
+        nameCard.remove(); // Remove nameCard from DOM
+    });
+
+    // Add name and button to nameCard
+    nameCard.appendChild(button);
+
+    // Add the new nameCard to the names-list container
+    container.appendChild(nameCard); 
+
+}
 
 
 
