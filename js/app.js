@@ -4,8 +4,8 @@ function addName(){
     event.preventDefault();
     // Grab/Create all HTML needed
     const name = document.getElementById('name-input').value;
-    if (name === ''){
-        alert('Please enter a name')
+    if (!validateInput(name)){
+        alert('Please enter a valid input')
         return
     }
     const container = document.getElementById('names-list');
@@ -91,6 +91,18 @@ function getRandomInt(max) {
   console.log(Math.floor(Math.random() * max))
   return Math.floor(Math.random() * max);
 }
+
+function validateInput(name){
+    empty = false
+    if (name.trim() === ''){
+        empty = true
+    }
+    // Regular expression that matches any string containing characters other than alphanumeric characters and spaces
+    const regex = /^([a-zA-Z]+ +)*[a-zA-Z]+$/;
+    // Test the input string against the regular expression
+    return regex.test(name) && !empty;
+}
+
 
 
 
