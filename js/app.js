@@ -1,4 +1,4 @@
-const names = []
+let names = []
 let groups = {}
 function addName(){
     event.preventDefault();
@@ -12,6 +12,12 @@ function addName(){
     const nameCard = document.createElement('div');
     const button = document.createElement('button');
 
+    
+    if (name.includes(' ')){
+        console.log("asdfasdf")
+        names = name.split(' ')
+        console.log(names)
+    }
     // Add name to array
     names.push(name);
 
@@ -30,7 +36,6 @@ function addName(){
         }
         window.sessionStorage.setItem("names", names)
         nameCard.remove(); // Remove nameCard from DOM
-        console.log(names);
     });
 
     // Add name and button to nameCard
@@ -93,14 +98,14 @@ function getRandomInt(max) {
 }
 
 function validateInput(name){
-    empty = false
+    isEmpty = false
     if (name.trim() === ''){
-        empty = true
+        isEmpty = true
     }
     // Regular expression that matches any string containing characters other than alphanumeric characters and spaces
     const regex = /^([a-zA-Z]+ +)*[a-zA-Z]+$/;
     // Test the input string against the regular expression
-    return regex.test(name) && !empty;
+    return regex.test(name) && !isEmpty;
 }
 
 
