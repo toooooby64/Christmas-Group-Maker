@@ -5,6 +5,10 @@ body{
     margin: 0;
     background-color: #62A8AC;
 }
+
+a {
+    display: inline-block;
+}
 input{
     width: 200px;
     height: 25px;
@@ -35,10 +39,6 @@ textarea {
     position: absolute;
     bottom: 40px;
     right: 40px;
-}
-
-#add-button{
-    padding: 5px;
 }
 
 
@@ -101,8 +101,6 @@ textarea {
 }
 
 .button{
-    width: 100px;
-    height: 30px;
     background-color: #FAFAD2;
     color: 084C61;
     border-radius: 10px;
