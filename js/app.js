@@ -19,6 +19,7 @@ function addName(){
         names.push(name);
         createNameCards(name)
     }
+    organizeNameCards();
     
     const nameInput = document.getElementById('name-input');
     nameInput.value = '';
@@ -84,10 +85,14 @@ function validateInput(name){
 
 function createNameCards(name){
     const container = document.getElementById('names-list');
+    const listItem = document.createElement('li');
     const nameCard = document.createElement('div');
     const button = document.createElement('button');
 
+
+    // Add name to nameCard
     nameCard.innerText = name;
+    listItem.appendChild(nameCard)
     //Add id and text to button
     button.classList.add('delete-button');
     button.innerText = 'X';
@@ -102,15 +107,31 @@ function createNameCards(name){
             names.splice(index, 1); // Remove name from array
         }
         window.sessionStorage.setItem("names", names)
-        nameCard.remove(); // Remove nameCard from DOM
+        listItem.remove(); // Remove li from DOM      
+          
     });
 
     // Add name and button to nameCard
     nameCard.appendChild(button);
+    container.appendChild(listItem);
+}
 
-    // Add the new nameCard to the names-list container
-    container.appendChild(nameCard); 
+function organizeNameCards() {
+    let nameCol = document.createElement('div');
+    nameCol.className = 'name-card-col';
 
+    let namesList = document.querySelector('#names-list');
+    let nameCards = namesList.querySelectorAll('li');
+
+    nameCards.forEach((nameCard, index) => {
+        nameCol.appendChild(nameCard);
+
+        if ((index + 1) % 5 === 0 || index === nameCards.length - 1) {
+            namesList.appendChild(nameCol);
+            nameCol = document.createElement('div');
+            nameCol.className = 'name-card-col';
+        }
+    });
 }
 
 
