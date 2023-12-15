@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crew Creator</title>
+        <link rel="stylesheet" href="./styles/styles.css">
+        <script defer src="./js/groupByPeople.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <h1>Crew Creator</h1>
+        </div>
+        <div id="content">
+            <div>
+                <h3>
+                    Here are the names you listed:
+                    <div id="names-print">
+                        <script>
+                            // Get the names from session storage
+                            let sessionNames = sessionStorage.getItem('names').split(',');
+                            const container = document.getElementById('names-print');
+                            // Create a paragraph for each name and append it to the div
+                            sessionNames.forEach(function (name, index) {
+                                let p = document.createElement('p');
+                                p.classList.add('name');
+                                p.textContent = name;
+                                if (index < sessionNames.length - 1) {
+                                    p.textContent += ",";
+                                }
+                                container.appendChild(p);
+                            });
+                        </script>
+                    </div>
+                </h3>
+            </div>
+            <div id="content-header">
+                <h3>
+                    How many poeple would you like in each group?
+                </h3>
+            </div>
+            <div id="Groups">
+                <label for="group-input">Number of people per group:</label>
+                <input type="text" id="group-input">
+            </div>
+            <div onclick="createGroups()" id="add-button">
+                <button class="button" type="submit" id="add">Add</button>
+            </div>
+            <div id="groups-list"> </div>
+        </div>
+    </body>
+</html>
