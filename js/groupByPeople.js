@@ -1,6 +1,5 @@
 let groups = {}
 //TODO - More than half of the number of people in a group tell the user that it is not possible
-//TODO - Add random name to group which has less ppl
 function calculateGroups(){
     const pplPerGroup = document.getElementById('group-input').value;
     const names = window.sessionStorage.getItem("names")

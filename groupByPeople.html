@@ -20,15 +20,20 @@
                             // Get the names from session storage
                             let sessionNames = sessionStorage.getItem('names').split(',');
                             const container = document.getElementById('names-print');
-                            // Create a paragraph for each name and append it to the div
+
+                            // Create a single text node and add all the names to it
+                            let namesText = '';
                             sessionNames.forEach(function (name, index) {
-                                let p = document.createElement('p');
-                                p.classList.add('name');
-                                p.textContent = name;
+                                namesText += name;
                                 if (index < sessionNames.length - 1) {
-                                    p.textContent += ",";
+                                    namesText += ", ";
                                 }
-                                container.appendChild(p);
+                                // After every 5 names, add a line break
+                                if ((index + 1) % 5 === 0) {
+                                    namesText += "<br>";
+                                }
+                                // Set the innerHTML of the container to the namesText
+                                container.innerHTML = namesText;
                             });
                         </script>
                     </div>
