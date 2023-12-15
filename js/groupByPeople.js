@@ -32,7 +32,10 @@ function createGroups(){
 
         if (groups[key].length < maxGroupSize){
             const randomName = namesArray[getRandomInt(namesArray.length)]
-            groups[key].push(randomName)
+            while (groups[key].includes(randomName)){
+                randomName = namesArray[getRandomInt(namesArray.length)]
+            }
+            groups[key].push(randomName+"1")
         }
         
     }
@@ -52,7 +55,13 @@ function displayGroups(){
         groupCards.classList.add('group-card');
         groups[key].forEach(element => {
             const nameCard = document.createElement('div');
-            nameCard.innerText = element;
+            if (element.includes("1")){
+                element = element.slice(0, -1);
+                nameCard.innerText = element;
+                nameCard.style.fontWeight = "bold";
+            }else{
+                nameCard.innerText = element;
+            }
             groupCards.appendChild(nameCard);
         });
         groupRow.appendChild(groupCards);
