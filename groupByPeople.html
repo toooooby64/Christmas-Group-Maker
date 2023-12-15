@@ -20,7 +20,7 @@
                             // Get the names from session storage
                             let sessionNames = sessionStorage.getItem('names').split(',');
                             const container = document.getElementById('names-print');
-
+                            
                             // Create a single text node and add all the names to it
                             let namesText = '';
                             sessionNames.forEach(function (name, index) {
@@ -35,6 +35,11 @@
                                 // Set the innerHTML of the container to the namesText
                                 container.innerHTML = namesText;
                             });
+
+                                namesText += "<br>";
+                                namesText += "<br>";
+                                namesText += " There are " + sessionNames.length + " people listed.";
+                                container.innerHTML = namesText;
                         </script>
                     </div>
                 </h3>
