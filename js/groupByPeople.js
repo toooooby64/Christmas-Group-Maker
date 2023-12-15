@@ -1,5 +1,4 @@
 let groups = {}
-//TODO - Add validation for empty input
 //TODO - More than half of the number of people in a group tell the user that it is not possible
 //TODO - Add random name to group which has less ppl
 function calculateGroups(){
@@ -7,7 +6,6 @@ function calculateGroups(){
     const names = window.sessionStorage.getItem("names")
     let namesArray = names.split(',')
     const numberOfGroups = Math.ceil(namesArray.length / pplPerGroup)
-    console.log(numberOfGroups)
     return numberOfGroups
 }
 
@@ -28,6 +26,17 @@ function createGroups(){
         nameIndex = getRandomInt(namesArray.length)
         groups[groupIndex].push(name)
     })
+
+    for (let key in groups){
+        maxGroupSize = groups[0].length
+
+        if (groups[key].length < maxGroupSize){
+            const randomName = namesArray[getRandomInt(namesArray.length)]
+            groups[key].push(randomName)
+        }
+        
+    }
+
     displayGroups()
 }
 
