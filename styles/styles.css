@@ -36,11 +36,15 @@ textarea {
 
 #next{
     font-size: large;
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
+    width: auto;
+    display: flex;
+    justify-content: end;
 }
 
+#next-button{
+    margin-right: 25px;
+    cursor: pointer;
+}
 
 #names-list{
     display: flex;
