@@ -1,62 +1,66 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Crew Creator</title>
-        <link rel="stylesheet" href="./styles/styles.css">
-        <script defer src="./js/groups.js"></script>
-    </head>
 
-    <body>
-        <div id="header">
-            <h1>Crew Creator</h1>
-        </div>
-        <div id="content">
-            <div>
-                <h3>
-                    Here are the names you listed:
-                    <div id="names-print">
-                        <script>
-                            // Get the names from session storage
-                            let sessionNames = sessionStorage.getItem('names').split(',');
-                            const container = document.getElementById('names-print');
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Creator</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script defer src="./js/groups.js"></script>
+</head>
 
-                            // Create a single text node and add all the names to it
-                            let namesText = '';
-                            sessionNames.forEach(function (name, index) {
-                                namesText += name;
-                                if (index < sessionNames.length - 1) {
-                                    namesText += ", ";
-                                }
-                                // After every 5 names, add a line break
-                                if ((index + 1) % 5 === 0) {
-                                    namesText += "<br>";
-                                }
-                                // Set the innerHTML of the container to the namesText
-                                container.innerHTML = namesText;
-                            });
-      
-                            namesText += "<br>";
-                            namesText += "<br>";
-                            namesText += " There are " + sessionNames.length + " people listed.";
+<body>
+    <div id="header">
+        <h1>Crew Creator</h1>
+    </div>
+    <div id="content">
+        <div>
+            <h3>
+                Here are the names you listed:
+                <div id="names-print">
+                    <script>
+                        // Get the names from session storage
+                        let sessionNames = sessionStorage.getItem('names').split(',');
+                        const container = document.getElementById('names-print');
+
+                        // Create a single text node and add all the names to it
+                        let namesText = '';
+                        sessionNames.forEach(function (name, index) {
+                            namesText += name;
+                            if (index < sessionNames.length - 1) {
+                                namesText += ", ";
+                            }
+                            // After every 5 names, add a line break
+                            if ((index + 1) % 5 === 0) {
+                                namesText += "<br>";
+                            }
+                            // Set the innerHTML of the container to the namesText
                             container.innerHTML = namesText;
-                        </script>
-                    </div>
-                </h3>
-            </div>
-            <div id="content-header">
-                <h3>
-                    How many groups would you like to create?
-                </h3>
-            </div>
-            <div id="Groups">
-                <label for="group-input">Number of Groups:</label>
-                <input type="text" id="group-input">
-            </div>
-            <div onclick="createGroups()" id="add-button">
-                <button class="button" type="submit" id="add">Add</button>
-            </div>
-            <div id="groups-list"> </div>
+                        });
+
+                        namesText += "<br>";
+                        namesText += "<br>";
+                        namesText += " There are " + sessionNames.length + " people listed.";
+                        container.innerHTML = namesText;
+                    </script>
+                </div>
+            </h3>
         </div>
-    </body>
+        <div id="content-header">
+            <h3>
+                How many groups would you like to create?
+            </h3>
+            <h4>If you see a bold name that person will have to go twice for groups to be even.</h4>
+
+        </div>
+        <div id="Groups">
+            <label for="group-input">Number of Groups:</label>
+            <input type="text" id="group-input">
+        </div>
+        <div onclick="createGroups()" id="add-button">
+            <button class="button" type="submit" id="add">Add</button>
+        </div>
+        <div id="groups-list"> </div>
+    </div>
+</body>
+
 </html>
